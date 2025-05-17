@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbershop</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    @media (min-width: 769px) {
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .gallery-carousel {
+        display: none;
+      }
+
+      .gallery-item {
+        position: relative;
+      }
+
+
+      .gallery-item .caption {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        width: 100%;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .caption {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        display: none;
+      }
+
+      .gallery-carousel {
+        display: block;
+        text-align: center;
+        position: relative;
+      }
+
+
+
+      .gallery-carousel .caption {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .gallery-carousel.show-caption .caption {
+        opacity: 1;
+      }
+
+      .gallery-carousel .controls {
+        margin-top: 1rem;
+      }
+
+      .gallery-carousel button {
+        margin: 0 0.5rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+      }
+    }
+
+    .book-now {
+      background: url('bookbg.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .book-now h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .book-now a {
+      display: inline-block;
+      background-color: #ff5c5c;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .book-now a:hover {
+      background-color: #e14b4b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="themasterstouch.jpg" alt="Logo" class="logo-img">
+      <div class="logo">The Masters Touch</div>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="menu" id="navMenu">
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#book">Book Now</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery" id="gallery">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="cut1.jpg" alt="Haircut 1">
+          <div class="caption">Classic Fade</div>
+        </div>
+        <div class="gallery-item">
+          <img src="cut2.jpg" alt="Haircut 2">
+          <div class="caption">Taper Cut</div>
+        </div>
+        <div class="gallery-item">
+          <img src="cut3.jpg" alt="Haircut 3">
+          <div class="caption">Buzz Cut</div>
+        </div>
+        <div class="gallery-item">
+          <img src="cut4.jpg" alt="Haircut 4">
+          <div class="caption">Undercut</div>
+        </div>
+      </div>
+      <div class="gallery-carousel" id="carouselContainer">
+        <img id="carouselImage" src="https://via.placeholder.com/300x200" alt="Haircut">
+        <div class="caption" id="carouselCaption"></div>
+        <div class="controls">
+          <button onclick="prevImage()">Previous</button>
+          <button onclick="nextImage()">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Classic Haircut - $25</li>
+        <li>Beard Trim - $15</li>
+        <li>Shave - $20</li>
+        <li>Haircut + Beard - $35</li>
+        <li>Kids Cut - $20</li>
+      </ul>
+    </section>
+
+    <section class="book-now" id="book">
+      <h2>Ready for a Fresh Cut?</h2>
+      <a href="https://yourbookinglink.com" target="_blank">Book Me Now</a>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <p>📍 1539 N Texas Blvd, Weslaco, TX 78596</p>
+      <p>📞 <a href="tel:9566849724">(956) 684-9724</a></p>
+      <p>📧 <a href="mailto:contact@The Masters Touch.com">contact@The Masters Touch.com</a></p>
+
+      <div style="margin-top:1rem;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.123456789!2d-122.41941558468149!3d37.77492977975806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e2b1e0f7d3f%3A0x1234567890abcdef!2sYour+Barbershop+Name!5e0!3m2!1sen!2sus!4v1623443210987!5m2!1sen!2sus"
+          width="100%"
+          height="300"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Masters Touch. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/p/The-Masters-Touch-Hair-Studio-100058870428946/" target="_blank">🎵 TikTok</a>
+      <a href="https://www.facebook.com/p/The-Masters-Touch-Hair-Studio-100058870428946/" target="_blank">📘 Facebook</a>
+      <a href="https://www.facebook.com/p/The-Masters-Touch-Hair-Studio-100058870428946/" target="_blank">📸 Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const images = [
+        { src: "cut1.jpg", caption: "Classic Fade" },
+        { src: "cut2.jpg", caption: "Taper Cut" },
+        { src: "cut3.jpg", caption: "Buzz Cut" },
+        { src: "cut4.jpg", caption: "Undercut" }
+      ];
+      let currentIndex = 0;
+
+      function showImage(index) {
+        const image = document.getElementById("carouselImage");
+        const caption = document.getElementById("carouselCaption");
+        const container = document.getElementById("carouselContainer");
+
+        image.style.opacity = 0;
+        setTimeout(() => {
+          image.src = images[index].src;
+          caption.textContent = images[index].caption;
+          image.style.opacity = 1;
+        }, 200);
+
+        container.classList.add("show-caption");
+        setTimeout(() => container.classList.remove("show-caption"), 2000);
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+      }
+
+      function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("active");
+      }
+
+      window.nextImage = nextImage;
+      window.prevImage = prevImage;
+      window.toggleMenu = toggleMenu;
+
+      showImage(currentIndex);
+    });
+  </script>
+</body>
+</html>

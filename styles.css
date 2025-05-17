@@ -1,0 +1,219 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navigation */
+nav.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+nav.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav.menu a:hover {
+  color: #ff5c5c;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav.menu {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+  }
+
+  nav.menu.active {
+    display: flex;
+  }
+}
+
+/* Gallery Styles - Grid & Carousel (already handled inline) */
+
+/* Services */
+.services {
+  padding: 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.services h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.services ul {
+  list-style: none;
+  max-width: 500px;
+  margin: auto;
+}
+
+.services li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.book-now {
+  background: url("bookbg.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px; /* Add this line */
+}
+
+
+.book-now h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.book-now a {
+  display: inline-block;
+  background-color: #ff5c5c;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.book-now a:hover {
+  background-color: #e14b4b;
+}
+
+/* Contact */
+.contact {
+  padding: 2rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer .social-links {
+  margin-top: 0.5rem;
+}
+
+footer .social-links a {
+  color: #fff;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+footer .social-links a:hover {
+  color: #ff5c5c;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 600px; /* increased from 300px */
+  object-fit: cover;
+}
+
+
+.gallery-carousel img {
+  width: 100%;
+  height: 600px; /* increased from 300px */
+  object-fit: cover;
+}
+
+.gallery-item .caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
